@@ -8,6 +8,9 @@ import FeaturedProducts from "./components/FeaturedProducts";
 import "./App.css";
 import MaxWidthWrapper from "./components/maxwidthwrapper";
 import "@fontsource/inter";
+import RecentProducts from "./components/RecentProducts";
+import Instagram from "./components/Instagram";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,7 +20,9 @@ function App() {
         <HeroSection />
         <CategorySection />
         <FeaturedProducts />
-        {/* <Footer /> */}
+        <RecentProducts />
+        <Instagram />
+        <Footer />
       </MaxWidthWrapper>
     </Router>
   );

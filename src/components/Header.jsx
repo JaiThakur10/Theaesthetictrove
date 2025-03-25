@@ -11,7 +11,9 @@ const Header = () => {
       </ul>
 
       {/* Middle Section */}
-      <h1 className="text-3xl font-light text-center flex-1">Jewel</h1>
+      <h1 className="text-3xl font-light text-center flex-1">
+        The Aesthetic Trove
+      </h1>
 
       {/* Right Section */}
       <div className="flex flex-1 justify-end space-x-4">

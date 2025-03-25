@@ -14,10 +14,10 @@ const categories = [
   { name: "Brooches", image: "./brooches.jpg", link: "/shop/brooches" },
 ];
 
-const CategorySection = () => (
+const RecentProducts = () => (
   <section className="container mx-auto px-6  mt-16 py-16">
     <h2 className="text-5xl font-light text-gray-800 text-center">
-      Shop By Category
+      Recent Products
     </h2>
     <div className="flex flex-wrap justify-center mt-12">
       {categories.map((category) => (
@@ -48,4 +48,4 @@ const CategorySection = () => (
   </section>
 );
 
-export default CategorySection;
+export default RecentProducts;
