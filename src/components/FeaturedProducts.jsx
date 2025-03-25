@@ -6,25 +6,25 @@ const featuredProducts = [
     name: "Copper Gold Plated",
     price: "$79.50",
     image: "./copper.jpg",
-    link: "/product/copper-gold-plated",
+    link: "#",
   },
   {
     name: "Zircon Gold Plated Ring",
     price: "$45.75",
     image: "./zircon.jpg",
-    link: "/product/zircon-gold-ring",
+    link: "#",
   },
   {
     name: "Chain Necklace Gold",
     price: "$45.00",
     image: "./chain.jpg",
-    link: "/product/chain-necklace",
+    link: "#",
   },
   {
     name: "Diamond Brooch",
     price: "$55.00",
     image: "./diamond.jpg",
-    link: "/product/diamond-brooch",
+    link: "/#",
   },
 ];
 

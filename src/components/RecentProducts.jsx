@@ -2,16 +2,16 @@ import { ArrowRight } from "lucide-react";
 import React from "react";
 
 const categories = [
-  { name: "Necklaces", image: "./necklace.jpg", link: "/shop/necklaces" },
-  { name: "Earrings", image: "./earrings.jpg", link: "/shop/earrings" },
+  { name: "Necklaces", image: "./necklace.jpg", link: "#" },
+  { name: "Earrings", image: "./earrings.jpg", link: "#" },
   {
     name: "Bracelets",
     image: "./bracelets.jpg",
-    link: "/shop/bracelets",
+    link: "#",
   },
-  { name: "Rings", image: "./rings.jpg", link: "/shop/rings" },
-  { name: "Pendants", image: "./pendants.jpg", link: "/shop/pendants" },
-  { name: "Brooches", image: "./brooches.jpg", link: "/shop/brooches" },
+  { name: "Rings", image: "./rings.jpg", link: "#" },
+  { name: "Pendants", image: "./pendants.jpg", link: "#" },
+  { name: "Brooches", image: "./brooches.jpg", link: "#" },
 ];
 
 const RecentProducts = () => (
