@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gambarino";
+  src: url("./Gambarino-Regular.woff") format("truetype"),
+    url("./Gambarino-Regular.woff2") format("woff2"),
+    url("./Gambarino-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gambarino", sans-serif;
+}
