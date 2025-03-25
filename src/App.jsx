@@ -4,9 +4,8 @@ import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import CategorySection from "./components/CategorySection";
 import FeaturedProducts from "./components/FeaturedProducts";
-
 import "./App.css";
-import MaxWidthWrapper from "./components/maxwidthwrapper";
+import MaxWidthWrapper from "./components/MaxWidthWrapper";
 import "@fontsource/inter";
 import RecentProducts from "./components/RecentProducts";
 import Instagram from "./components/Instagram";
