@@ -14,25 +14,25 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="flex md:flex-row  flex-col mt-14 h-[540px] md:h-[800px] relative overflow-hidden"
+      className="flex md:flex-row  flex-col mt-14 h-[510px] md:h-[800px] relative overflow-hidden"
     >
       {/* Left Side (30%) */}
       <div
-        className="flex-[0.3]   flex flex-col justify-center 
+        className="flex-[0.3]    flex flex-col justify-center 
 md:px-6 space-y-4 md:items-start items-center text-center md:text-left"
       >
         <div className="w-full md:w-auto flex items-center">
           <div
             className="w-full items-start md:w-auto h-auto md:h-[400px] 
-    flex flex-col gap-3 
+    flex flex-col md:gap-3 
     md:absolute md:z-10 md:mt-0"
           >
             {" "}
             {/* ✅ Removed absolute for mobile, only applies on md */}
-            <span className="text-5xl text-left  md:text-7xl font-light">
+            <span className="text-[50px] text-left  md:text-7xl font-light">
               The Best Jeweler
             </span>
-            <span className="text-5xl md:text-7xl font-light ">for you</span>
+            <span className="text-[50px] md:text-7xl font-light ">for you</span>
             <span className="mt-4 text-sm md:text-base hidden md:inline">
               He moonlights difficult engrossed it, sportsmen interested has all
               difficulty gay
