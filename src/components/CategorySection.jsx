@@ -12,7 +12,7 @@ const categories = [
 
 const CategorySection = () => (
   <section className="  container mx-auto  md:px-6 mt-16 py-16">
-    <h2 className="text-3xl md:text-5xl font-light text-gray-800 text-center">
+    <h2 className="text-3xl md:text-5xl font-light text-black text-center">
       Shop By Category
     </h2>
 

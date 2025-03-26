@@ -31,7 +31,7 @@ const featuredProducts = [
 const FeaturedProducts = () => (
   <section className="bg-white py-16">
     <div className="container mx-auto px-6 mt-10">
-      <h2 className="md:text-5xl text-3xl font-light text-gray-800 text-center">
+      <h2 className="md:text-5xl text-3xl font-light text-black text-center">
         Featured Products
       </h2>
 
