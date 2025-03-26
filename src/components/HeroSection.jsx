@@ -29,10 +29,10 @@ md:px-6 space-y-4 md:items-start items-center text-center md:text-left"
           >
             {" "}
             {/* ✅ Removed absolute for mobile, only applies on md */}
-            <span className="text-3xl text-left  md:text-7xl md:font-light font-extrabold">
+            <span className="text-3xl text-left  md:text-7xl md:font-light font-bold">
               The Best Jeweler
             </span>
-            <span className="text-3xl md:text-7xl md:font-light font-extrabold">
+            <span className="text-3xl md:text-7xl md:font-light font-bold">
               for you
             </span>
             <span className="mt-4 text-sm md:text-base hidden md:inline">
