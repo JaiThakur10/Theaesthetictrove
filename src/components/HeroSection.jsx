@@ -14,7 +14,7 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="flex md:flex-row  flex-col mt-14 h-[510px] md:h-[800px] relative overflow-hidden"
+      className="flex md:flex-row  flex-col mt-14 h-[450px] md:h-[800px] relative overflow-hidden"
     >
       {/* Left Side (30%) */}
       <div
@@ -29,10 +29,10 @@ md:px-6 space-y-4 md:items-start items-center text-center md:text-left"
           >
             {" "}
             {/* ✅ Removed absolute for mobile, only applies on md */}
-            <span className="text-[50px] text-left  md:text-7xl font-light">
+            <span className="text-3xl text-left  md:text-7xl font-light">
               The Best Jeweler
             </span>
-            <span className="text-[50px] md:text-7xl font-light ">for you</span>
+            <span className="text-3xl md:text-7xl font-light ">for you</span>
             <span className="mt-4 text-sm md:text-base hidden md:inline">
               He moonlights difficult engrossed it, sportsmen interested has all
               difficulty gay
