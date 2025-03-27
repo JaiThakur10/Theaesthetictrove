@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Checkout = () => {
   const { cart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
+  const { clearCart } = useContext(CartContext);
 
   const [customerName, setCustomerName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -40,18 +41,20 @@ const Checkout = () => {
       return;
     }
 
-    const whatsappNumber = "6006594966"; // Replace with your business WhatsApp number
-    const message = generateOrderMessage();
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+    console.log("Placing Order...");
 
     // Open WhatsApp order message
+    const whatsappNumber = "9149724411"; // Replace with your WhatsApp number
+    const message = generateOrderMessage();
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
     window.open(whatsappURL, "_blank");
 
-    // Clear the cart
-    setCart([]);
-
-    // Redirect to the Thank You page
-    navigate("/thankyou");
+    // Clear cart and navigate
+    setTimeout(() => {
+      clearCart(); // Use clearCart function
+      navigate("/thankyou", { replace: true });
+      console.log("Cart Cleared:", cart);
+    }, 500);
   };
 
   return (

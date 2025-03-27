@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import { X } from "lucide-react"; // Import for close icon
+import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const CartSidebar = ({ cartOpen, setCartOpen }) => {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
   const navigate = useNavigate();
 
-  // Calculate subtotal safely
   const subtotal = cart.reduce(
     (acc, item) => acc + (parseFloat(item.price) || 0) * item.quantity,
     0
@@ -15,21 +14,18 @@ const CartSidebar = ({ cartOpen, setCartOpen }) => {
 
   return (
     <>
-      {/* Overlay (closes cart on click) */}
       {cartOpen && (
         <div
-          className="fixed inset-0  z-40"
+          className="fixed inset-0 z-40"
           onClick={() => setCartOpen(false)}
         ></div>
       )}
 
-      {/* Sidebar Cart */}
       <div
         className={`fixed right-0 top-0 w-80 h-full bg-white shadow-lg z-50 transform ${
           cartOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 p-5`}
       >
-        {/* Close Button */}
         <button
           className="absolute top-4 right-4"
           onClick={() => setCartOpen(false)}
@@ -40,7 +36,14 @@ const CartSidebar = ({ cartOpen, setCartOpen }) => {
         <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
 
         {cart.length === 0 ? (
-          <p className="text-gray-500">Your cart is empty.</p>
+          <div className="flex flex-col items-center justify-center text-gray-500">
+            <img
+              src="/assets/empty-cart.png" // 🔹 Use the imported image here
+              alt="Empty Cart"
+              className="w-40 h-40 object-contain opacity-80"
+            />
+            <p>Your cart is empty.</p>
+          </div>
         ) : (
           <div className="flex flex-col gap-4">
             {cart.map((item) => (
@@ -83,7 +86,6 @@ const CartSidebar = ({ cartOpen, setCartOpen }) => {
           </div>
         )}
 
-        {/* Subtotal & Checkout Button */}
         {cart.length > 0 && (
           <div className="absolute bottom-0 left-0 w-full bg-white p-4 shadow-lg">
             <div className="flex justify-between font-medium text-lg">

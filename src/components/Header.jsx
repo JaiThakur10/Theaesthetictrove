@@ -1,34 +1,96 @@
 import { useState, useContext, useRef, useEffect } from "react";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import CartSidebar from "./CartSidebar";
 
+const products = [
+  {
+    id: 1,
+    name: "Gold Ring",
+    category: "rings",
+    image: "/images/ring1.jpg",
+    price: "$199",
+  },
+  {
+    id: 2,
+    name: "Silver Ring",
+    category: "rings",
+    image: "/images/ring2.jpg",
+    price: "$99",
+  },
+  {
+    id: 3,
+    name: "Diamond Pendant",
+    category: "pendants",
+    image: "/images/pendant1.jpg",
+    price: "$299",
+  },
+  {
+    id: 4,
+    name: "Pearl Necklace",
+    category: "necklaces",
+    image: "/necklace.jpg",
+    price: "$399",
+  },
+  {
+    id: 5,
+    name: "Stud Earrings",
+    category: "earrings",
+    image: "/images/earring1.jpg",
+    price: "$149",
+  },
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart } = useContext(CartContext);
-  const [cartOpen, setCartOpen] = useState(false); // State to toggle cart visibility
+  const [cartOpen, setCartOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const menuRef = useRef(null);
+  const searchRef = useRef(null);
+  const { cart } = useContext(CartContext);
+  const navigate = useNavigate();
 
-  // Close menu when clicking outside
+  // Handle clicks outside menu & search
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsOpen(false);
       }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchOpen(false);
+      }
     };
 
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen]);
+  }, []);
+
+  // Handle search input changes
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+    setSearchTerm(value);
+
+    if (value === "") {
+      setFilteredProducts([]);
+    } else {
+      setFilteredProducts(
+        products.filter((p) => p.name.toLowerCase().includes(value))
+      );
+    }
+  };
+
+  // Handle search selection
+  const handleSearchSelect = (productId) => {
+    navigate(`/product/${productId}`);
+    setSearchTerm("");
+    setSearchOpen(false);
+  };
 
   return (
-    <nav className="relative z-50 flex items-center p-4 bg-white border-b-1 border-[#B6B6B7]">
+    <nav className="relative z-50 flex items-center p-4 bg-white border-b border-gray-300">
       {/* Left Section */}
       <ul className="hidden md:flex flex-1 space-x-8 text-lg font-medium">
         <li className="cursor-pointer hover:text-gray-600">
@@ -44,7 +106,6 @@ const Header = () => {
 
       {/* Middle Section */}
       <div className="flex-1 flex justify-center">
-        {/* Show text in desktop view, image in mobile view */}
         <h1 className="hidden md:block text-3xl font-light">
           The Aesthetic Trove
         </h1>
@@ -57,22 +118,61 @@ const Header = () => {
 
       {/* Right Section */}
       <div className="relative flex flex-1 justify-end space-x-4">
-        <Search className="cursor-pointer hover:text-gray-600" />
+        {/* Search Icon */}
+        <div ref={searchRef} className="relative">
+          <Search
+            className="cursor-pointer hover:text-gray-600"
+            onClick={() => setSearchOpen((prev) => !prev)}
+          />
+          {searchOpen && (
+            <div className="absolute top-10  right-0 w-60 bg-white border border-gray-300 rounded-lg  p-3">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+              />
+              {searchTerm && (
+                <ul className="mt-2 max-h-40 overflow-auto">
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product) => (
+                      <li
+                        key={product.id}
+                        className="p-2 hover:bg-gray-200 cursor-pointer flex items-center"
+                        onClick={() => handleSearchSelect(product.id)}
+                      >
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-10 h-10 mr-3 rounded-md"
+                        />
+                        {product.name}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="p-2 text-gray-500">No products found.</li>
+                  )}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
 
-        {/* Cart Icon with Clickable Toggle */}
+        {/* Cart Icon */}
         <div
           className="relative cursor-pointer hover:text-gray-600"
           onClick={() => setCartOpen(true)}
         >
           <ShoppingCart size={24} />
           {cart.length > 0 && (
-            <span className="absolute -top-2 -right-2 bg-[#CECECE] text-black text-xs w-5 h-5 flex items-center justify-center rounded-full">
+            <span className="absolute -top-2 -right-2 bg-gray-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
               {cart.length}
             </span>
           )}
         </div>
 
-        {/* Sidebar Cart Component */}
+        {/* Cart Sidebar */}
         <CartSidebar cartOpen={cartOpen} setCartOpen={setCartOpen} />
 
         {/* Mobile Menu Toggle */}

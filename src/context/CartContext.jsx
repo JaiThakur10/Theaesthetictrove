@@ -14,6 +14,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  // Add to cart function
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -39,10 +40,12 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Remove item from cart
   const removeFromCart = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
+  // Update quantity of a cart item
   const updateQuantity = (id, quantity) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -51,9 +54,15 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  // 🔥 Clear cart function (resets state + localStorage)
+  const clearCart = () => {
+    setCart([]); // Clear cart in state
+    localStorage.removeItem("cart"); // Remove from localStorage
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity }}
+      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}
     >
       {children}
     </CartContext.Provider>

@@ -43,13 +43,13 @@ function Footer() {
             {
               title: "Services",
               items: [
-                { name: "Web Design", link: "/webflow" },
+                { name: "Gold", link: "/webflow" },
                 {
-                  name: "Digital Marketing",
+                  name: "Silver",
                   link: "/comingsoon",
                 },
                 {
-                  name: "SEO Optimization",
+                  name: "Diamond",
                   link: "/comingsoon",
                 },
                 { name: "UI/UX Design", link: "/comingsoon" },
@@ -122,7 +122,7 @@ function Footer() {
             {[
               {
                 icon: <Instagram size={30} />,
-                link: "https://www.instagram.com/weularity/?hl=en",
+                link: "https://www.instagram.com/theaesthetictrove/?hl=en",
               },
               {
                 icon: <Linkedin size={30} />,
