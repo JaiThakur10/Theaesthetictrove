@@ -30,8 +30,8 @@ const products = [
     id: 4,
     name: "Pearl Necklace",
     category: "necklaces",
-    image: "/images/necklace1.jpg",
-    price: "$399",
+    image: "/necklace.jpg",
+    price: "399",
     description: "A classic pearl necklace.",
   },
   {
@@ -53,7 +53,7 @@ const Shop = () => {
       : products.filter((product) => product.category === selectedCategory);
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container   mx-auto px-4 py-6">
       <h1 className="text-center text-4xl md:text-7xl mt-6 font-light mb-8">
         Shop
       </h1>
@@ -78,12 +78,12 @@ const Shop = () => {
       </div>
 
       {/* Product Display */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <Link
             to={`/product/${product.id}`}
             key={product.id}
-            className="border p-4 rounded-md shadow-sm hover:shadow-lg transition block"
+            className="border p-2 rounded-md shadow-sm hover:shadow-lg transition block"
           >
             <img
               src={product.image}

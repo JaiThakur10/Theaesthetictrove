@@ -40,7 +40,7 @@ const Checkout = () => {
       return;
     }
 
-    const whatsappNumber = "7006140255"; // Replace with your business WhatsApp number
+    const whatsappNumber = "6006594966"; // Replace with your business WhatsApp number
     const message = generateOrderMessage();
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
 

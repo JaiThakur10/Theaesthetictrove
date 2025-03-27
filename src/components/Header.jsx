@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
@@ -8,6 +8,24 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cart } = useContext(CartContext);
   const [cartOpen, setCartOpen] = useState(false); // State to toggle cart visibility
+  const menuRef = useRef(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   return (
     <nav className="relative z-50 flex items-center p-4 bg-white border-b-1 border-[#B6B6B7]">
@@ -48,7 +66,7 @@ const Header = () => {
         >
           <ShoppingCart size={24} />
           {cart.length > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+            <span className="absolute -top-2 -right-2 bg-[#CECECE] text-black text-xs w-5 h-5 flex items-center justify-center rounded-full">
               {cart.length}
             </span>
           )}
@@ -65,15 +83,24 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <ul className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center space-y-6 py-6 text-lg z-50">
+        <ul
+          ref={menuRef}
+          className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center space-y-6 py-6 text-lg z-50"
+        >
           <li className="cursor-pointer hover:text-gray-600">
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={() => setIsOpen(false)}>
+              Home
+            </Link>
           </li>
           <li className="cursor-pointer hover:text-gray-600">
-            <Link to="/aboutus">About Us</Link>
+            <Link to="/aboutus" onClick={() => setIsOpen(false)}>
+              About Us
+            </Link>
           </li>
           <li className="cursor-pointer hover:text-gray-600">
-            <Link to="/shop">Shop</Link>
+            <Link to="/shop" onClick={() => setIsOpen(false)}>
+              Shop
+            </Link>
           </li>
         </ul>
       )}

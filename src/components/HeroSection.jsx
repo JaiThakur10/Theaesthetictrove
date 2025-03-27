@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const HeroSection = () => {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -46,12 +48,11 @@ md:px-6 space-y-4 md:items-start items-center text-center md:text-left"
               day sweetness.
             </p>
             <button
+              onClick={() => navigate("/shop")} // Navigate to /shop
               className="flex items-center gap-2 border mt-4 
       w-[60%] md:w-[50%] border-black px-6 py-2 rounded-full 
       hover:bg-black hover:text-white transition"
             >
-              {" "}
-              {/* ✅ Adjusted button width */}
               Explore Now ➝
             </button>
           </div>
