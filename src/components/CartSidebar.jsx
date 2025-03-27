@@ -56,7 +56,11 @@ const CartSidebar = ({ cartOpen, setCartOpen }) => {
                 <div className="flex-1 ml-4">
                   <p className="font-medium">{item.name}</p>
                   <p className="text-gray-500">
-                    ${parseFloat(item.price || 0).toFixed(2)} USD
+                    $
+                    {typeof item.price === "number"
+                      ? item.price.toFixed(2)
+                      : "N/A"}{" "}
+                    USD
                   </p>
                   <button
                     onClick={() => removeFromCart(item.id)}
@@ -81,7 +85,7 @@ const CartSidebar = ({ cartOpen, setCartOpen }) => {
 
         {/* Subtotal & Checkout Button */}
         {cart.length > 0 && (
-          <div className="mt-4">
+          <div className="absolute bottom-0 left-0 w-full bg-white p-4 shadow-lg">
             <div className="flex justify-between font-medium text-lg">
               <span>Subtotal</span>
               <span>${subtotal.toFixed(2)} USD</span>

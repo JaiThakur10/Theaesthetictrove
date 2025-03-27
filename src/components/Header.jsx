@@ -16,7 +16,9 @@ const Header = () => {
         <li className="cursor-pointer hover:text-gray-600">
           <Link to="/">Home</Link>
         </li>
-        <li className="cursor-pointer hover:text-gray-600">About Us</li>
+        <li className="cursor-pointer hover:text-gray-600">
+          <Link to="/aboutus">About Us</Link>
+        </li>
         <li className="cursor-pointer hover:text-gray-600">
           <Link to="/shop">Shop</Link>
         </li>
@@ -64,9 +66,15 @@ const Header = () => {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <ul className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center space-y-6 py-6 text-lg z-50">
-          <li className="cursor-pointer hover:text-gray-600">Home</li>
-          <li className="cursor-pointer hover:text-gray-600">About Us</li>
-          <li className="cursor-pointer hover:text-gray-600">Shop</li>
+          <li className="cursor-pointer hover:text-gray-600">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="cursor-pointer hover:text-gray-600">
+            <Link to="/aboutus">About Us</Link>
+          </li>
+          <li className="cursor-pointer hover:text-gray-600">
+            <Link to="/shop">Shop</Link>
+          </li>
         </ul>
       )}
     </nav>

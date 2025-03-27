@@ -6,10 +6,9 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    if (!product) return;
-
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
+
       if (existingItem) {
         return prevCart.map((item) =>
           item.id === product.id
@@ -20,9 +19,11 @@ export const CartProvider = ({ children }) => {
         return [
           ...prevCart,
           {
-            ...product,
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: Number(product.price), // Ensure price is a number
             quantity: 1,
-            price: Number(product.price) || 0, // Ensure price is a number
           },
         ];
       }
@@ -43,7 +44,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity }}
+      value={{ cart, addToCart, removeFromCart, updateQuantity, setCart }}
     >
       {children}
     </CartContext.Provider>

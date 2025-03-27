@@ -54,7 +54,9 @@ const Shop = () => {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-center text-4xl md:text-6xl font-bold mb-8">Shop</h1>
+      <h1 className="text-center text-4xl md:text-7xl mt-6 font-light mb-8">
+        Shop
+      </h1>
 
       {/* Category Buttons */}
       <div className="flex overflow-x-auto md:justify-center space-x-2 md:space-x-4 mb-6 p-2">

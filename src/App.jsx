@@ -11,6 +11,9 @@ import MaxWidthWrapper from "./components/MaxWidthWrapper";
 import ProductDetails from "./components/ProductDetails";
 import { CartProvider } from "./context/CartContext";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import ThankYou from "./components/Thankyou";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
             <Route path="/product/:id" element={<ProductDetails />} />{" "}
             {/* Dynamic Route */}
             <Route path="/cart" element={<Cart />} /> {/* Cart Page */}
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/thankyou" element={<ThankYou />} />
+            <Route path="/aboutus" element={<AboutUs />} />
           </Routes>
           <Footer />
         </MaxWidthWrapper>
