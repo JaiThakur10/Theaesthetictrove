@@ -106,14 +106,14 @@ const Header = () => {
 
       {/* Middle Section */}
       <div className="flex-1 flex justify-center">
-        <h1 className="hidden md:block text-3xl font-light">
+        <h1 className=" text-xl md:block md:text-3xl font-light">
           The Aesthetic Trove
         </h1>
-        <img
+        {/* <img
           src="/logoed.png"
           alt="Logo"
           className="md:hidden w-12 h-12 object-contain"
-        />
+        /> */}
       </div>
 
       {/* Right Section */}
