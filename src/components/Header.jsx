@@ -7,38 +7,18 @@ import CartSidebar from "./CartSidebar";
 const products = [
   {
     id: 1,
-    name: "Gold Ring",
-    category: "rings",
-    image: "/images/ring1.jpg",
-    price: "$199",
+    name: "Brass drop earrings",
+    image: "/bdered.jpg",
   },
   {
     id: 2,
-    name: "Silver Ring",
-    category: "rings",
-    image: "/images/ring2.jpg",
-    price: "$99",
+    name: "Medium Size Brass Jhumka",
+    image: "/mj.jpg",
   },
   {
     id: 3,
-    name: "Diamond Pendant",
-    category: "pendants",
-    image: "/images/pendant1.jpg",
-    price: "$299",
-  },
-  {
-    id: 4,
-    name: "Pearl Necklace",
-    category: "necklaces",
-    image: "/necklace.jpg",
-    price: "$399",
-  },
-  {
-    id: 5,
-    name: "Stud Earrings",
-    category: "earrings",
-    image: "/images/earring1.jpg",
-    price: "$149",
+    name: "Medium Size Brass Jhumka (Meenakari)",
+    image: "/mjm.jpg",
   },
 ];
 

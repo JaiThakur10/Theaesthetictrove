@@ -3,51 +3,39 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { FaTruck, FaBoxOpen, FaUndo } from "react-icons/fa"; // Import icons
 
+// Product Data
 const products = [
   {
     id: 1,
-    name: "Gold Ring",
-    category: "rings",
-    image: "/rings.jpg",
-    price: 199,
-    description: "A luxurious 18k gold ring.",
-    info: "Material: 18K Gold | Weight: 5g | Origin: Italy",
+    name: "Brass drop earrings",
+    category: "earrings",
+    images: {
+      red: "/bdered.jpg",
+      mustard: "/bdeorange.jpg",
+      black: "/bdeblack.jpg",
+      green: "/bdegreen.jpg",
+    },
+    price: 340,
+    description:
+      "Gold-plated brass earrings with Mother of Pearl (MOP) and Monalisa stone embedded beautifully.",
+    colors: ["red", "mustard", "black", "green"],
   },
+
   {
     id: 2,
-    name: "Silver Ring",
-    category: "rings",
-    image: "/images/ring2.jpg",
-    price: 99,
-    description: "A sleek and stylish silver ring.",
-    info: "Material: 925 Sterling Silver | Weight: 4g | Origin: USA",
+    name: "Medium Size Brass Jhumka",
+    category: "earrings",
+    image: "/mj.jpg",
+    price: 480,
+    description: "Medium size brass jhumka without meenakari",
   },
   {
     id: 3,
-    name: "Diamond Pendant",
-    category: "pendants",
-    image: "/pendants.jpg",
-    price: 299,
-    description: "A sparkling diamond pendant.",
-    info: "Material: White Gold | Diamond: 0.5ct | Origin: Belgium",
-  },
-  {
-    id: 4,
-    name: "Pearl Necklace",
-    category: "necklaces",
-    image: "/necklace.jpg",
-    price: 399,
-    description: "A classic pearl necklace.",
-    info: "Material: Freshwater Pearls | Length: 18 inches | Origin: Japan",
-  },
-  {
-    id: 5,
-    name: "Stud Earrings",
+    name: "Medium Size Brass Jhumka (Meenakari)",
     category: "earrings",
-    image: "/earrings.jpg",
-    price: 149,
-    description: "Elegant stud earrings.",
-    info: "Material: Platinum | Stones: Cubic Zirconia | Origin: France",
+    image: "/mjm.jpg",
+    price: 550,
+    description: "Medium size brass jhumka with meenakari",
   },
 ];
 
@@ -56,13 +44,29 @@ const ProductDetails = () => {
   const { addToCart } = useContext(CartContext);
   const product = products.find((p) => p.id === parseInt(id));
 
-  // State to track if item is added to cart
+  // State for selected color (default to first color if available)
+  const [selectedColor, setSelectedColor] = useState(
+    product.colors ? product.colors[0] : ""
+  );
+
+  // Get correct image based on selected color
+  const selectedImage =
+    product.images && selectedColor
+      ? product.images[selectedColor]
+      : product.image;
+
+  // State for 'Added to Cart' effect
   const [added, setAdded] = useState(false);
 
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart({
+      ...product,
+      selectedColor,
+      name: `${product.name} (${selectedColor})`,
+      image: selectedImage,
+    }); // Add selected color and image to cart
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000); // Reset after 2 seconds
+    setTimeout(() => setAdded(false), 2000);
   };
 
   if (!product) {
@@ -75,7 +79,7 @@ const ProductDetails = () => {
         {/* Product Image */}
         <div className="flex-1">
           <img
-            src={product.image}
+            src={selectedImage}
             alt={product.name}
             className="w-full max-w-lg mx-auto rounded-md"
           />
@@ -83,14 +87,51 @@ const ProductDetails = () => {
 
         {/* Product Details */}
         <div className="flex-1">
-          <h1 className="text-6xl font-light">{product.name}</h1>
+          <h1 className="text-6xl font-light">
+            {product.name}{" "}
+            {product.colors
+              ? `(${
+                  selectedColor.charAt(0).toUpperCase() +
+                  selectedColor.slice(1).toLowerCase()
+                })`
+              : ""}
+          </h1>
+
           <p className="text-gray-500 text-lg mt-2">
             {product.category.toUpperCase()}
           </p>
           <p className="text-3xl font-light text-black mt-4">
-            ${product.price}
+            ₹{product.price}
           </p>
           <p className="text-gray-600 mt-6">{product.description}</p>
+
+          {/* Color Selection with Images */}
+          {product.colors && (
+            <div className="mt-4">
+              <h3 className="text-lg font-medium text-gray-800">
+                Choose Color:
+              </h3>
+              <div className="flex gap-4 mt-2">
+                {product.colors.map((color) => (
+                  <button
+                    key={color}
+                    className={`w-16 h-16 rounded-md border-2 transition ${
+                      selectedColor === color
+                        ? "border-black scale-110"
+                        : "border-gray-300"
+                    }`}
+                    onClick={() => setSelectedColor(color)}
+                  >
+                    <img
+                      src={product.images[color]}
+                      alt={`${product.name} - ${color}`}
+                      className="w-full h-full object-cover rounded-md"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Icons Section */}
           <div className="flex gap-6 mt-6">
@@ -121,13 +162,28 @@ const ProductDetails = () => {
             {added ? "Added!" : "Add to Cart"}
           </button>
 
-          {/* Product Info Section */}
-          <div className="mt-6 p-4 border rounded-md">
-            <h3 className="text-lg font-semibold text-gray-800">
-              Product Information
-            </h3>
-            <p className="text-gray-700 mt-2">{product.info}</p>
-          </div>
+          {/* Selected Color Display */}
+          {selectedColor && (
+            <div className="mt-4 flex items-center gap-3">
+              <p className="text-lg font-semibold text-gray-500">
+                Selected Color:
+              </p>
+
+              {/* Color Swatch with Fixed Background */}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full shadow-md bg-gray-100">
+                {/* Color Circle */}
+                <span
+                  className="w-6 h-6 rounded-full border border-gray-400"
+                  style={{ backgroundColor: selectedColor }}
+                ></span>
+
+                {/* Color Name */}
+                <span className="text-sm font-medium capitalize text-gray-700">
+                  {selectedColor}
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

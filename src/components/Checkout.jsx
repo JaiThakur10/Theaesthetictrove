@@ -19,7 +19,7 @@ const Checkout = () => {
 
     cart.forEach((item, index) => {
       message += `🛒 *${index + 1}. ${item.name}*%0A`;
-      message += `💰 Price: $${item.price.toFixed(2)} x ${item.quantity} = $${(
+      message += `💰 Price: ₹${item.price.toFixed(2)} x ${item.quantity} = ₹${(
         item.price * item.quantity
       ).toFixed(2)}%0A%0A`;
     });
@@ -29,7 +29,8 @@ const Checkout = () => {
       0
     );
 
-    message += `🧾 *Subtotal:* $${subtotal.toFixed(2)} USD%0A%0A`;
+    message += `🧾 *Subtotal:* ₹${subtotal.toFixed(2)} INR%0A%0A`;
+
     message += `✅ *Confirm & Process Order*`;
 
     return message;
@@ -98,7 +99,7 @@ const Checkout = () => {
             <span>
               {item.name} x {item.quantity}
             </span>
-            <span>${(item.price * item.quantity).toFixed(2)}</span>
+            <span>₹{(item.price * item.quantity).toFixed(2)}</span>
           </div>
         ))}
       </div>
