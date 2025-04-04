@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className="relative bg-white text-black py-20 px-8 overflow-hidden">
       {/* Background Decorations */}
@@ -26,13 +28,13 @@ function Footer() {
               <h3 className="text-2xl font-light">The Aesthetic Trove</h3>
             </div>
             <p className="text-black leading-relaxed mt-4">
-              He moonlights difficult-engrossed, sportsmen. Interested has all
-              Devonshire difficulty gay assistance joy. Unaffected at ye of
-              compliment alteration to.
+              Sparkle with confidence, shine with elegance! Elevate your style
+              with timeless jewelry that speaks volumes. Because you deserve to
+              dazzle, every day.
             </p>
             <button
               className="mt-6 px-6 py-3  text-black font-light rounded-full border-1 border-black hover:bg-black hover:text-white transition transform hover:scale-105"
-              onClick={() => navigate("/getStarted")}
+              onClick={() => navigate("/shop")}
             >
               Explore Now ➝{" "}
             </button>
@@ -41,34 +43,24 @@ function Footer() {
           {/* Quick Links Section */}
           {[
             {
-              title: "Services",
+              title: "Shop",
               items: [
-                { name: "Gold", link: "/webflow" },
+                { name: "Earrings", link: "/shop" },
                 {
-                  name: "Silver",
-                  link: "/comingsoon",
+                  name: "Rings",
+                  link: "/shop",
                 },
                 {
-                  name: "Diamond",
-                  link: "/comingsoon",
+                  name: "Necklaces",
+                  link: "/shop",
                 },
-                { name: "UI/UX Design", link: "/comingsoon" },
               ],
             },
-            {
-              title: "Explore",
-              items: [
-                { name: "Portfolio", link: "/previouswork" },
-                { name: "Case Studies", link: "/comingsoon" },
-                { name: "Testimonials", link: "/comingsoon" },
-                { name: "Blog", link: "/comingsoon" },
-              ],
-            },
+
             {
               title: "Company",
               items: [
-                { name: "About Us", link: "/about" },
-                { name: "Careers", link: "/comingsoon" },
+                { name: "About Us", link: "/aboutus" },
                 { name: "Contact", link: "/contact" },
               ],
             },
@@ -86,7 +78,7 @@ function Footer() {
                   <li key={i}>
                     <Link
                       to={item.link}
-                      className="hover:text-[#CC4EC5] transition duration-200"
+                      className="hover:text-gray-600 transition duration-200"
                     >
                       {item.name}
                     </Link>
@@ -134,7 +126,7 @@ function Footer() {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-black hover:text-[#CC4EC5] transition duration-300"
+                className="text-black hover:text-gray-600 transition duration-300"
               >
                 {social.icon}
               </a>
@@ -149,7 +141,7 @@ function Footer() {
           href="https://www.weularity.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm cursor-pointer hover:text-green-700"
+          className="text-sm cursor-pointer hover:text-gray-600"
         >
           <p>
             Crafted with ❤️ by Weularity. All rights reserved. &copy;{" "}

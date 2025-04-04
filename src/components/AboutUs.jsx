@@ -11,9 +11,11 @@ const AboutUs = () => {
             Our Story
           </h2>
           <p className="text-gray-800 mt-4 md:mt-2">
-            Our journey began with a vision to redefine elegance in jewelry
-            design. From humble beginnings in a small studio, we have grown into
-            a brand cherished by over a million customers worldwide.
+            At Aesthetic Trove, we believe that jewelry is more than just an
+            accessory—it's an expression of elegance, tradition, and
+            individuality. Our journey began with a passion for timeless
+            craftsmanship and a vision to curate exquisite pieces that celebrate
+            heritage while embracing modern artistry.
           </p>
         </div>
 
@@ -48,23 +50,26 @@ const AboutUs = () => {
           <div>
             <h1 className="text-2xl md:text-3xl">What we do?</h1>
             <p className="mt-2 text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis, sint!
+              Each creation in our collection is thoughtfully designed, blending
+              intricate details with high-quality materials to bring you jewelry
+              that tells a story. From statement pieces that turn heads to
+              delicate adornments perfect for everyday wear, our trove is a
+              treasure chest of beauty and sophistication.
             </p>
           </div>
           <div>
             <h1 className="text-2xl md:text-3xl mt-6">Our Values</h1>
             <p className="mt-2 text-gray-700">
-              Integrity, innovation, and inclusivity define us. We believe in
-              creating jewelry that not only adorns but also empowers
-              individuals, reflecting their unique stories and aspirations.
+              Rooted in authenticity and driven by creativity, Aesthetic Trove
+              is not just a brand; it’s an experience. A place where tradition
+              meets contemporary charm, where every piece resonates with grace
+              and grandeur.
             </p>
           </div>
           <div>
             <h1 className="text-2xl md:text-3xl mt-6">Our Mission</h1>
             <p className="mt-2 text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis, sint!
+              Adorn yourself with elegance. Treasure the art of fine jewelry.
             </p>
           </div>
         </div>

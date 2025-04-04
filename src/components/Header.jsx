@@ -70,7 +70,9 @@ const Header = () => {
       {/* Middle Section */}
       <div className="flex-1 flex justify-center">
         <h1 className=" text-xl md:block md:text-3xl font-light">
-          The Aesthetic Trove
+          <li className="cursor-pointer list-none">
+            <Link to="/">The Aesthetic Trove</Link>
+          </li>
         </h1>
         {/* <img
           src="/logoed.png"

@@ -35,17 +35,18 @@ md:px-6 space-y-4 md:items-start items-center text-center md:text-left"
               The Best Jeweler
             </span>
             <span className="text-3xl md:text-7xl font-light ">for you</span>
-            <span className="mt-4 text-sm md:text-base hidden md:inline">
-              He moonlights difficult engrossed it, sportsmen interested has all
-              difficulty gay
+            <span className="mt-4 text-xl md:text-base hidden md:inline">
+              Sparkle with confidence, shine with elegance! ✨ Elevate your
+              style with timeless
             </span>
-            <span className="text-sm md:text-base hidden md:inline">
-              Assistance joy perceived end knowledge certainly day sweetness.
+            <span className="text-xl md:text-base hidden md:inline">
+              jewelry that speaks volumes. Because you deserve to dazzle, every
+              day. 💫
             </span>
             <p className=" md:hidden text-left font-light ">
-              He moonlights difficult engrossed it, sportsmen interested has all
-              difficulty gay Assistance joy perceived end knowledge certainly
-              day sweetness.
+              Sparkle with confidence, shine with elegance! ✨ Elevate your
+              style with timeless jewelry that speaks volumes. Because you
+              deserve to dazzle, every day. 💫
             </p>
             <button
               onClick={() => navigate("/shop")} // Navigate to /shop
