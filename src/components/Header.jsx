@@ -3,24 +3,7 @@ import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import CartSidebar from "./CartSidebar";
-
-const products = [
-  {
-    id: 1,
-    name: "Brass drop earrings",
-    image: "/bdered.jpg",
-  },
-  {
-    id: 2,
-    name: "Medium Size Brass Jhumka",
-    image: "/mj.jpg",
-  },
-  {
-    id: 3,
-    name: "Medium Size Brass Jhumka (Meenakari)",
-    image: "/mjm.jpg",
-  },
-];
+import products from "../data/products";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,33 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-const products = [
-  {
-    id: 1,
-    name: "Brass drop earrings",
-    category: "earrings",
-    image: "/bdered.jpg",
-    price: "₹340",
-    description:
-      "Gold-plated brass earrings with Mother of Pearl (MOP) and Monalisa stone embedded beautifully.",
-  },
-  {
-    id: 2,
-    name: "Medium Size Brass Jhumka",
-    category: "earrings",
-    image: "/mj.jpg",
-    price: 480,
-    description: "medium size brass jhumka without meenakari",
-  },
-  {
-    id: 3,
-    name: "Medium Size Brass Jhumka (Meenakari)",
-    category: "earrings",
-    image: "/mjm.jpg",
-    price: 550,
-    description: "medium size brass jhumka with meenakari",
-  },
-];
+import products from "../data/products"; // Import product data
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -71,14 +44,14 @@ const Shop = () => {
             className="border p-2 rounded-md shadow-sm hover:shadow-lg transition block"
           >
             <img
-              src={product.image}
+              src={product.defaultImage || product.image}
               alt={product.name}
               className="w-full h-40 object-cover rounded-md"
             />
             <h3 className="mt-2 text-center text-lg font-semibold">
               {product.name}
             </h3>
-            <p className="text-center text-gray-500">{product.price}</p>
+            <p className="text-center text-gray-500">₹ {product.price}</p>
           </Link>
         ))}
       </div>

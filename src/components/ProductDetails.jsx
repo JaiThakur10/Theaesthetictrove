@@ -2,42 +2,7 @@ import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { FaTruck, FaBoxOpen, FaUndo } from "react-icons/fa"; // Import icons
-
-// Product Data
-const products = [
-  {
-    id: 1,
-    name: "Brass drop earrings",
-    category: "earrings",
-    images: {
-      red: "/bdered.jpg",
-      mustard: "/bdeorange.jpg",
-      black: "/bdeblack.jpg",
-      green: "/bdegreen.jpg",
-    },
-    price: 340,
-    description:
-      "Gold-plated brass earrings with Mother of Pearl (MOP) and Monalisa stone embedded beautifully.",
-    colors: ["red", "mustard", "black", "green"],
-  },
-
-  {
-    id: 2,
-    name: "Medium Size Brass Jhumka",
-    category: "earrings",
-    image: "/mj.jpg",
-    price: 480,
-    description: "Medium size brass jhumka without meenakari",
-  },
-  {
-    id: 3,
-    name: "Medium Size Brass Jhumka (Meenakari)",
-    category: "earrings",
-    image: "/mjm.jpg",
-    price: 550,
-    description: "Medium size brass jhumka with meenakari",
-  },
-];
+import products from "../data/products"; // Import product data
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -59,12 +24,15 @@ const ProductDetails = () => {
   const [added, setAdded] = useState(false);
 
   const handleAddToCart = () => {
-    addToCart({
+    const cartItem = {
       ...product,
+      id: `${product.id}-${selectedColor}`, // Unique ID for each color variation
       selectedColor,
       name: `${product.name} (${selectedColor})`,
       image: selectedImage,
-    }); // Add selected color and image to cart
+    };
+
+    addToCart(cartItem);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
