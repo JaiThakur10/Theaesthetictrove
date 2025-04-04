@@ -14,11 +14,13 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import ThankYou from "./components/Thankyou";
 import AboutUs from "./components/AboutUs";
+import ScrollToTop from "./hooks/useScrollToTop";
 
 function App() {
   return (
     <CartProvider>
       <Router>
+        <ScrollToTop />
         <MaxWidthWrapper>
           <Header />
           <Routes>
