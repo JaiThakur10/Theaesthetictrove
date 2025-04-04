@@ -18,21 +18,17 @@ const Shop = () => {
 
       {/* Category Buttons */}
       <div className="flex overflow-x-auto md:justify-center space-x-2 md:space-x-4 mb-6 p-2">
-        {["all", "rings", "pendants", "necklaces", "earrings"].map(
-          (category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 text-sm md:text-base rounded-md border border-black transition-all ${
-                selectedCategory === category
-                  ? "bg-black text-white"
-                  : "bg-white"
-              }`}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          )
-        )}
+        {["all", "rings", "necklaces", "earrings"].map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-4 py-2 text-sm md:text-base rounded-md border border-black transition-all ${
+              selectedCategory === category ? "bg-black text-white" : "bg-white"
+            }`}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </button>
+        ))}
       </div>
 
       {/* Product Display */}
