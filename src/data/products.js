@@ -533,11 +533,11 @@ const products = [
   {
     id: 49,
     name: "Brass Hasli with Studs",
-    category: "earrings",
+    category: "necklaces",
     price: 699,
     description:
       "Beautifully handcrafted dual-tone brass jhumka with intricate designs, perfect for traditional outfits.",
-    defaultImage: "/bhws.jpg",
+    image: "/bhws.jpg",
   },
 ];
 
