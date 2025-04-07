@@ -9,12 +9,14 @@ const Checkout = () => {
 
   const [customerName, setCustomerName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [pinCode, setPinCode] = useState(""); // <-- New state
   const [shippingAddress, setShippingAddress] = useState("");
 
   const generateOrderMessage = () => {
     let message = `🛍 *New Order Details*%0A%0A`;
     message += `👤 *Customer Name:* ${customerName}%0A`;
     message += `📞 *Phone Number:* ${phoneNumber}%0A`;
+    message += `🏷️ *PIN Code:* ${pinCode}%0A`; // <-- Added PIN
     message += `📍 *Shipping Address:* ${shippingAddress}%0A%0A`;
 
     cart.forEach((item, index) => {
@@ -30,29 +32,26 @@ const Checkout = () => {
     );
 
     message += `🧾 *Subtotal:* ₹${subtotal.toFixed(2)} INR%0A%0A`;
-
     message += `✅ *Confirm & Process Order*`;
 
     return message;
   };
 
   const handlePlaceOrder = () => {
-    if (!customerName || !phoneNumber || !shippingAddress) {
+    if (!customerName || !phoneNumber || !pinCode || !shippingAddress) {
       alert("Please fill in all the details!");
       return;
     }
 
     console.log("Placing Order...");
 
-    // Open WhatsApp order message
-    const whatsappNumber = "70067 91198";
+    const whatsappNumber = "7006791198";
     const message = generateOrderMessage();
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
     window.open(whatsappURL, "_blank");
 
-    // Clear cart and navigate
     setTimeout(() => {
-      clearCart(); // Use clearCart function
+      clearCart();
       navigate("/thankyou", { replace: true });
       console.log("Cart Cleared:", cart);
     }, 500);
@@ -72,7 +71,6 @@ const Checkout = () => {
           className="w-full border p-2 rounded-md mb-3"
           placeholder="Enter your name"
         />
-
         <label className="block font-medium mb-1">Phone Number:</label>
         <input
           type="text"
@@ -81,7 +79,15 @@ const Checkout = () => {
           className="w-full border p-2 rounded-md mb-3"
           placeholder="Enter your phone number"
         />
-
+        <label className="block font-medium mb-1">PIN Code:</label>{" "}
+        {/* New Field */}
+        <input
+          type="text"
+          value={pinCode}
+          onChange={(e) => setPinCode(e.target.value)}
+          className="w-full border p-2 rounded-md mb-3"
+          placeholder="Enter your PIN code"
+        />
         <label className="block font-medium mb-1">Shipping Address:</label>
         <textarea
           value={shippingAddress}
