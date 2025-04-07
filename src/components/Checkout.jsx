@@ -45,7 +45,7 @@ const Checkout = () => {
     console.log("Placing Order...");
 
     // Open WhatsApp order message
-    const whatsappNumber = "7006140255";
+    const whatsappNumber = "70067 91198";
     const message = generateOrderMessage();
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
     window.open(whatsappURL, "_blank");
