@@ -122,7 +122,7 @@ const ProductDetails = () => {
             onClick={handleAddToCart}
             className={`mt-6 px-6 py-3 rounded-md transition ${
               added
-                ? "bg-blue-400 text-white cursor-not-allowed"
+                ? "bg-[#E1306C] text-white cursor-not-allowed"
                 : "bg-black text-white hover:bg-gray-800"
             }`}
             disabled={added}

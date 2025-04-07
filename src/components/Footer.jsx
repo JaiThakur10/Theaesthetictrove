@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Youtube } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
@@ -116,17 +116,13 @@ function Footer() {
                 icon: <Instagram size={30} />,
                 link: "https://www.instagram.com/theaesthetictrove/?hl=en",
               },
-              {
-                icon: <Linkedin size={30} />,
-                link: "https://www.linkedin.com/company/103681884/admin/dashboard/",
-              },
             ].map((social, index) => (
               <a
                 key={index}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-black hover:text-gray-600 transition duration-300"
+                className="text-black hover:text-[#E1306C] transition duration-300"
               >
                 {social.icon}
               </a>

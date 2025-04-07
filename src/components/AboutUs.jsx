@@ -31,7 +31,7 @@ const AboutUs = () => {
 
       {/* Achievements */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-        {["90% Handcrafted", "1.2M+ Customers", "5+ Years of Excellence"].map(
+        {["90% Handcrafted", "15K+ Customers", "3+ Years of Excellence"].map(
           (item, index) => (
             <div key={index} className="bg-white  text-center">
               <h3 className="text-3xl font-light text-gray-800">{item}</h3>

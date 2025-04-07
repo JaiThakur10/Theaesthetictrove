@@ -539,6 +539,50 @@ const products = [
       "Beautifully handcrafted dual-tone brass jhumka with intricate designs, perfect for traditional outfits.",
     image: "/bhws.jpg",
   },
+  {
+    id: 50,
+    name: "Beautiful Morni Jhumki",
+    description:
+      "Gold plated brass earrings with elegant morni (peacock) design.",
+    price: 350,
+    category: "Earrings",
+    defaultImage: "/bmj.jpg",
+    images: {
+      black: "/bmjb.jpg",
+      pink: "/bmj.jpg",
+    },
+    colors: ["black", "pink"],
+  },
+  {
+    id: 51,
+    name: "Elephant Earrings",
+    description:
+      "All colours available in elephant earrings, with both gold and silver plated options.",
+    price: 250,
+    category: "Earrings",
+    colors: ["black", "green", "red"],
+    images: {
+      black: "/eeb.jpg",
+      green: "/eeg.jpg",
+      red: "/ee.jpg",
+    },
+    defaultImage: "/ee.jpg",
+  },
+  {
+    id: 52,
+    name: "Monalisa Stone Studs",
+    description: "Gold plated brass earrings with sparkling Monalisa stones.",
+    price: 320,
+    category: "Earrings",
+    colors: ["darkgreen", "black", "cyan", "green"],
+    images: {
+      darkgreen: "/mss.jpg",
+      black: "/mssb.jpg",
+      cyan: "/mssc.jpg",
+      green: "/msspg.jpg",
+    },
+    image: "/mss.jpg",
+  },
 ];
 
 export default products;
