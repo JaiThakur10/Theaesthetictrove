@@ -583,6 +583,14 @@ const products = [
     },
     image: "/mss.jpg",
   },
+  {
+    id: 53,
+    name: "Square drop golden brass jhumka",
+    description: "Square drop golden brass jhumka elegency at its peak.",
+    price: 550,
+    category: "Earrings",
+    image: "/sdgbj.jpg",
+  },
 ];
 
 export default products;
